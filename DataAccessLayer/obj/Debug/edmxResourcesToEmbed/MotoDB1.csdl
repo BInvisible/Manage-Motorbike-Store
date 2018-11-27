@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MotorbikeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MotoDB1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BILLs" EntityType="MotorbikeDBModel.BILL" />
+    <EntitySet Name="CUSTOMERs" EntityType="MotorbikeDBModel.CUSTOMER" />
+    <EntitySet Name="DEGREEs" EntityType="MotorbikeDBModel.DEGREE" />
+    <EntitySet Name="DEPARTMENTs" EntityType="MotorbikeDBModel.DEPARTMENT" />
+    <EntitySet Name="EMPLOYEEs" EntityType="MotorbikeDBModel.EMPLOYEE" />
+    <EntitySet Name="INSURANCEs" EntityType="MotorbikeDBModel.INSURANCE" />
+    <EntitySet Name="Logins" EntityType="MotorbikeDBModel.Login" />
+    <EntitySet Name="MOTORBIKEs" EntityType="MotorbikeDBModel.MOTORBIKE" />
+    <EntitySet Name="POSITIONs" EntityType="MotorbikeDBModel.POSITION" />
+    <AssociationSet Name="FK__BILL__CUSID__5DCAEF64" Association="MotorbikeDBModel.FK__BILL__CUSID__5DCAEF64">
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+      <End Role="BILL" EntitySet="BILLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILL__MOTOID__5EBF139D" Association="MotorbikeDBModel.FK__BILL__MOTOID__5EBF139D">
+      <End Role="MOTORBIKE" EntitySet="MOTORBIKEs" />
+      <End Role="BILL" EntitySet="BILLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__DEGREE__300424B4" Association="MotorbikeDBModel.FK__EMPLOYEE__DEGREE__300424B4">
+      <End Role="DEGREE" EntitySet="DEGREEs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__DEPART__31EC6D26" Association="MotorbikeDBModel.FK__EMPLOYEE__DEPART__31EC6D26">
+      <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__INSURA__5070F446" Association="MotorbikeDBModel.FK__EMPLOYEE__INSURA__5070F446">
+      <End Role="INSURANCE" EntitySet="INSURANCEs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__POSITI__30F848ED" Association="MotorbikeDBModel.FK__EMPLOYEE__POSITI__30F848ED">
+      <End Role="POSITION" EntitySet="POSITIONs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BILL">
+    <Key>
+      <PropertyRef Name="BID" />
+    </Key>
+    <Property Name="BID" Type="Int32" Nullable="false" />
+    <Property Name="CUSID" Type="Int32" />
+    <Property Name="MOTOID" Type="Int32" />
+    <Property Name="DATEBUY" Type="DateTime" Precision="0" />
+    <Property Name="QUANTITY" Type="Int32" />
+    <Property Name="TOTALMONEY" Type="Double" />
+    <NavigationProperty Name="CUSTOMER" Relationship="MotorbikeDBModel.FK__BILL__CUSID__5DCAEF64" FromRole="BILL" ToRole="CUSTOMER" />
+    <NavigationProperty Name="MOTORBIKE" Relationship="MotorbikeDBModel.FK__BILL__MOTOID__5EBF139D" FromRole="BILL" ToRole="MOTORBIKE" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="CUSID" />
+    </Key>
+    <Property Name="CUSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIRSTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDCARD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PHONENUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ADDRESSS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BID" Type="Int32" />
+    <NavigationProperty Name="BILLs" Relationship="MotorbikeDBModel.FK__BILL__CUSID__5DCAEF64" FromRole="CUSTOMER" ToRole="BILL" />
+  </EntityType>
+  <EntityType Name="DEGREE">
+    <Key>
+      <PropertyRef Name="DEGREEID" />
+    </Key>
+    <Property Name="DEGREEID" Type="Int32" Nullable="false" />
+    <Property Name="DEGREENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="MotorbikeDBModel.FK__EMPLOYEE__DEGREE__300424B4" FromRole="DEGREE" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="DEPARTMENT">
+    <Key>
+      <PropertyRef Name="DEPARTMENTID" />
+    </Key>
+    <Property Name="DEPARTMENTID" Type="Int32" Nullable="false" />
+    <Property Name="DEPARTMENTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="MotorbikeDBModel.FK__EMPLOYEE__DEPART__31EC6D26" FromRole="DEPARTMENT" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EID" />
+    </Key>
+    <Property Name="EID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIRSTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PHONENUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ADDDRESSS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GENDER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="PICTURE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IDCARD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DEGREEID" Type="Int32" />
+    <Property Name="POSITIONID" Type="Int32" />
+    <Property Name="DEPARTMENTID" Type="Int32" />
+    <Property Name="INSURANCEID" Type="Int32" />
+    <NavigationProperty Name="DEGREE" Relationship="MotorbikeDBModel.FK__EMPLOYEE__DEGREE__300424B4" FromRole="EMPLOYEE" ToRole="DEGREE" />
+    <NavigationProperty Name="DEPARTMENT" Relationship="MotorbikeDBModel.FK__EMPLOYEE__DEPART__31EC6D26" FromRole="EMPLOYEE" ToRole="DEPARTMENT" />
+    <NavigationProperty Name="INSURANCE" Relationship="MotorbikeDBModel.FK__EMPLOYEE__INSURA__5070F446" FromRole="EMPLOYEE" ToRole="INSURANCE" />
+    <NavigationProperty Name="POSITION" Relationship="MotorbikeDBModel.FK__EMPLOYEE__POSITI__30F848ED" FromRole="EMPLOYEE" ToRole="POSITION" />
+  </EntityType>
+  <EntityType Name="INSURANCE">
+    <Key>
+      <PropertyRef Name="INSURANCEID" />
+    </Key>
+    <Property Name="INSURANCEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EID" Type="Int32" />
+    <Property Name="ISSUEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HOSPITAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DATEBUY" Type="DateTime" Precision="0" />
+    <Property Name="EXPDATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="MotorbikeDBModel.FK__EMPLOYEE__INSURA__5070F446" FromRole="INSURANCE" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Authority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MOTORBIKE">
+    <Key>
+      <PropertyRef Name="MOTOID" />
+    </Key>
+    <Property Name="MOTOID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MOTONAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PICTURE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="PRODUCER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CAPACITY" Type="Int32" />
+    <Property Name="COLOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PRICE" Type="Double" />
+    <NavigationProperty Name="BILLs" Relationship="MotorbikeDBModel.FK__BILL__MOTOID__5EBF139D" FromRole="MOTORBIKE" ToRole="BILL" />
+  </EntityType>
+  <EntityType Name="POSITION">
+    <Key>
+      <PropertyRef Name="POSITIONID" />
+    </Key>
+    <Property Name="POSITIONID" Type="Int32" Nullable="false" />
+    <Property Name="POSITIONNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="MotorbikeDBModel.FK__EMPLOYEE__POSITI__30F848ED" FromRole="POSITION" ToRole="EMPLOYEE" />
+  </EntityType>
+  <Association Name="FK__BILL__CUSID__5DCAEF64">
+    <End Type="MotorbikeDBModel.CUSTOMER" Role="CUSTOMER" Multiplicity="0..1" />
+    <End Type="MotorbikeDBModel.BILL" Role="BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="CUSID" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="CUSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BILL__MOTOID__5EBF139D">
+    <End Type="MotorbikeDBModel.MOTORBIKE" Role="MOTORBIKE" Multiplicity="0..1" />
+    <End Type="MotorbikeDBModel.BILL" Role="BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOTORBIKE">
+        <PropertyRef Name="MOTOID" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="MOTOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__DEGREE__300424B4">
+    <End Type="MotorbikeDBModel.DEGREE" Role="DEGREE" Multiplicity="0..1" />
+    <End Type="MotorbikeDBModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEGREE">
+        <PropertyRef Name="DEGREEID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="DEGREEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__DEPART__31EC6D26">
+    <End Type="MotorbikeDBModel.DEPARTMENT" Role="DEPARTMENT" Multiplicity="0..1" />
+    <End Type="MotorbikeDBModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTMENT">
+        <PropertyRef Name="DEPARTMENTID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="DEPARTMENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__INSURA__5070F446">
+    <End Type="MotorbikeDBModel.INSURANCE" Role="INSURANCE" Multiplicity="0..1" />
+    <End Type="MotorbikeDBModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INSURANCE">
+        <PropertyRef Name="INSURANCEID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="INSURANCEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__POSITI__30F848ED">
+    <End Type="MotorbikeDBModel.POSITION" Role="POSITION" Multiplicity="0..1" />
+    <End Type="MotorbikeDBModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POSITION">
+        <PropertyRef Name="POSITIONID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="POSITIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

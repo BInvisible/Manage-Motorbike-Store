@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MotobikeModelStoreContainer" CdmEntityContainer="MotobikeEntities">
+    <EntitySetMapping Name="BILLs">
+      <EntityTypeMapping TypeName="MotobikeModel.BILL">
+        <MappingFragment StoreEntitySet="BILL">
+          <ScalarProperty Name="TOTALMONEY" ColumnName="TOTALMONEY" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="DATEBUY" ColumnName="DATEBUY" />
+          <ScalarProperty Name="MOTOID" ColumnName="MOTOID" />
+          <ScalarProperty Name="CUSID" ColumnName="CUSID" />
+          <ScalarProperty Name="BID" ColumnName="BID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERs">
+      <EntityTypeMapping TypeName="MotobikeModel.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMER">
+          <ScalarProperty Name="BID" ColumnName="BID" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="ADDRESSS" ColumnName="ADDRESSS" />
+          <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+          <ScalarProperty Name="IDCARD" ColumnName="IDCARD" />
+          <ScalarProperty Name="CUSN" ColumnName="CUSN" />
+          <ScalarProperty Name="CUSID" ColumnName="CUSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEGREEs">
+      <EntityTypeMapping TypeName="MotobikeModel.DEGREE">
+        <MappingFragment StoreEntitySet="DEGREE">
+          <ScalarProperty Name="DEGREENAME" ColumnName="DEGREENAME" />
+          <ScalarProperty Name="DEGREEID" ColumnName="DEGREEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTMENTs">
+      <EntityTypeMapping TypeName="MotobikeModel.DEPARTMENT">
+        <MappingFragment StoreEntitySet="DEPARTMENT">
+          <ScalarProperty Name="DEPARTMENTNAME" ColumnName="DEPARTMENTNAME" />
+          <ScalarProperty Name="DEPARTMENTID" ColumnName="DEPARTMENTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEEs">
+      <EntityTypeMapping TypeName="MotobikeModel.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEE">
+          <ScalarProperty Name="INSURANCEID" ColumnName="INSURANCEID" />
+          <ScalarProperty Name="DEPARTMENTID" ColumnName="DEPARTMENTID" />
+          <ScalarProperty Name="POSITIONID" ColumnName="POSITIONID" />
+          <ScalarProperty Name="DEGREEID" ColumnName="DEGREEID" />
+          <ScalarProperty Name="IDCARD" ColumnName="IDCARD" />
+          <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="ADDDRESSS" ColumnName="ADDDRESSS" />
+          <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+          <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+          <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+          <ScalarProperty Name="EID" ColumnName="EID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEELOGs">
+      <EntityTypeMapping TypeName="MotobikeModel.EMPLOYEELOG">
+        <MappingFragment StoreEntitySet="EMPLOYEELOG">
+          <ScalarProperty Name="PASSWORD1" ColumnName="PASSWORD1" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INSURANCEs">
+      <EntityTypeMapping TypeName="MotobikeModel.INSURANCE">
+        <MappingFragment StoreEntitySet="INSURANCE">
+          <ScalarProperty Name="EID" ColumnName="EID" />
+          <ScalarProperty Name="HOSPITAL" ColumnName="HOSPITAL" />
+          <ScalarProperty Name="EXPDATE" ColumnName="EXPDATE" />
+          <ScalarProperty Name="ISSUEDBY" ColumnName="ISSUEDBY" />
+          <ScalarProperty Name="DATEBUY" ColumnName="DATEBUY" />
+          <ScalarProperty Name="INSURANCEID" ColumnName="INSURANCEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MANAGERLOGs">
+      <EntityTypeMapping TypeName="MotobikeModel.MANAGERLOG">
+        <MappingFragment StoreEntitySet="MANAGERLOG">
+          <ScalarProperty Name="PASSWORD1" ColumnName="PASSWORD1" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOTORBIKEs">
+      <EntityTypeMapping TypeName="MotobikeModel.MOTORBIKE">
+        <MappingFragment StoreEntitySet="MOTORBIKE">
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="COLOR" ColumnName="COLOR" />
+          <ScalarProperty Name="CAPACITY" ColumnName="CAPACITY" />
+          <ScalarProperty Name="PRODUCER" ColumnName="PRODUCER" />
+          <ScalarProperty Name="MOTONAME" ColumnName="MOTONAME" />
+          <ScalarProperty Name="MOTOID" ColumnName="MOTOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POSITIONs">
+      <EntityTypeMapping TypeName="MotobikeModel.POSITION">
+        <MappingFragment StoreEntitySet="POSITION">
+          <ScalarProperty Name="POSITIONNAME" ColumnName="POSITIONNAME" />
+          <ScalarProperty Name="POSITIONID" ColumnName="POSITIONID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MotobikeModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

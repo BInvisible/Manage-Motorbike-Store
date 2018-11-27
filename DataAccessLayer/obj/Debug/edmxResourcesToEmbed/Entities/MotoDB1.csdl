@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MotorbikeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BILL">
+    <Key>
+      <PropertyRef Name="BID" />
+    </Key>
+    <Property Name="BID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="CUSID" Type="Int32" />
+    <Property Name="MOTOID" Type="Int32" />
+    <Property Name="DATEBUY" Type="DateTime" Precision="0" />
+    <Property Name="QUANTITY" Type="Int32" />
+    <Property Name="TOTALMONEY" Type="Double" />
+    <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__BILL__CUSID__1BFD2C07" FromRole="BILL" ToRole="CUSTOMER" />
+    <NavigationProperty Name="MOTORBIKE" Relationship="Self.FK__BILL__MOTOID__1CF15040" FromRole="BILL" ToRole="MOTORBIKE" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="CUSID" />
+    </Key>
+    <Property Name="CUSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIRSTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDCARD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PHONENUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ADDRESSS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BID" Type="Int32" />
+    <NavigationProperty Name="BILLs" Relationship="Self.FK__BILL__CUSID__1BFD2C07" FromRole="CUSTOMER" ToRole="BILL" />
+  </EntityType>
+  <EntityType Name="DEGREE">
+    <Key>
+      <PropertyRef Name="DEGREEID" />
+    </Key>
+    <Property Name="DEGREEID" Type="Int32" Nullable="false" />
+    <Property Name="DEGREENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK__EMPLOYEE__DEGREE__300424B4" FromRole="DEGREE" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="DEPARTMENT">
+    <Key>
+      <PropertyRef Name="DEPARTMENTID" />
+    </Key>
+    <Property Name="DEPARTMENTID" Type="Int32" Nullable="false" />
+    <Property Name="DEPARTMENTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK__EMPLOYEE__DEPART__31EC6D26" FromRole="DEPARTMENT" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EID" />
+    </Key>
+    <Property Name="EID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIRSTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PHONENUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ADDDRESSS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GENDER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="PICTURE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IDCARD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DEGREEID" Type="Int32" />
+    <Property Name="POSITIONID" Type="Int32" />
+    <Property Name="DEPARTMENTID" Type="Int32" />
+    <Property Name="INSURANCEID" Type="Int32" />
+    <NavigationProperty Name="DEGREE" Relationship="Self.FK__EMPLOYEE__DEGREE__300424B4" FromRole="EMPLOYEE" ToRole="DEGREE" />
+    <NavigationProperty Name="DEPARTMENT" Relationship="Self.FK__EMPLOYEE__DEPART__31EC6D26" FromRole="EMPLOYEE" ToRole="DEPARTMENT" />
+    <NavigationProperty Name="INSURANCE" Relationship="Self.FK__EMPLOYEE__INSURA__32E0915F" FromRole="EMPLOYEE" ToRole="INSURANCE" />
+    <NavigationProperty Name="POSITION" Relationship="Self.FK__EMPLOYEE__POSITI__30F848ED" FromRole="EMPLOYEE" ToRole="POSITION" />
+  </EntityType>
+  <EntityType Name="EMPLOYEELOG">
+    <Key>
+      <PropertyRef Name="USERNAME" />
+    </Key>
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASSWORD1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="INSURANCE">
+    <Key>
+      <PropertyRef Name="INSURANCEID" />
+    </Key>
+    <Property Name="INSURANCEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EID" Type="Int32" />
+    <Property Name="ISSUEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HOSPITAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DATEBUY" Type="DateTime" Precision="0" />
+    <Property Name="EXPDATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK__EMPLOYEE__INSURA__32E0915F" FromRole="INSURANCE" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="MANAGERLOG">
+    <Key>
+      <PropertyRef Name="USERNAME" />
+    </Key>
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASSWORD1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MOTORBIKE">
+    <Key>
+      <PropertyRef Name="MOTOID" />
+    </Key>
+    <Property Name="MOTOID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MOTONAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PRODUCER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CAPACITY" Type="Int32" />
+    <Property Name="COLOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PRICE" Type="Double" />
+    <NavigationProperty Name="BILLs" Relationship="Self.FK__BILL__MOTOID__1CF15040" FromRole="MOTORBIKE" ToRole="BILL" />
+    <Property Name="PICTURE" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="POSITION">
+    <Key>
+      <PropertyRef Name="POSITIONID" />
+    </Key>
+    <Property Name="POSITIONID" Type="Int32" Nullable="false" />
+    <Property Name="POSITIONNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK__EMPLOYEE__POSITI__30F848ED" FromRole="POSITION" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__BILL__CUSID__1BFD2C07">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+    <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="CUSID" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="CUSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BILL__MOTOID__1CF15040">
+    <End Role="MOTORBIKE" Type="Self.MOTORBIKE" Multiplicity="0..1" />
+    <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOTORBIKE">
+        <PropertyRef Name="MOTOID" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="MOTOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__DEGREE__300424B4">
+    <End Role="DEGREE" Type="Self.DEGREE" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEGREE">
+        <PropertyRef Name="DEGREEID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="DEGREEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__DEPART__31EC6D26">
+    <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTMENT">
+        <PropertyRef Name="DEPARTMENTID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="DEPARTMENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__INSURA__32E0915F">
+    <End Role="INSURANCE" Type="Self.INSURANCE" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INSURANCE">
+        <PropertyRef Name="INSURANCEID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="INSURANCEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__POSITI__30F848ED">
+    <End Role="POSITION" Type="Self.POSITION" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POSITION">
+        <PropertyRef Name="POSITIONID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="POSITIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MotoDB1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BILLs" EntityType="Self.BILL" />
+    <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+    <EntitySet Name="DEGREEs" EntityType="Self.DEGREE" />
+    <EntitySet Name="DEPARTMENTs" EntityType="Self.DEPARTMENT" />
+    <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+    <EntitySet Name="EMPLOYEELOGs" EntityType="Self.EMPLOYEELOG" />
+    <EntitySet Name="INSURANCEs" EntityType="Self.INSURANCE" />
+    <EntitySet Name="MANAGERLOGs" EntityType="Self.MANAGERLOG" />
+    <EntitySet Name="MOTORBIKEs" EntityType="Self.MOTORBIKE" />
+    <EntitySet Name="POSITIONs" EntityType="Self.POSITION" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__BILL__CUSID__1BFD2C07" Association="Self.FK__BILL__CUSID__1BFD2C07">
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+      <End Role="BILL" EntitySet="BILLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILL__MOTOID__1CF15040" Association="Self.FK__BILL__MOTOID__1CF15040">
+      <End Role="MOTORBIKE" EntitySet="MOTORBIKEs" />
+      <End Role="BILL" EntitySet="BILLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__DEGREE__300424B4" Association="Self.FK__EMPLOYEE__DEGREE__300424B4">
+      <End Role="DEGREE" EntitySet="DEGREEs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__DEPART__31EC6D26" Association="Self.FK__EMPLOYEE__DEPART__31EC6D26">
+      <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__INSURA__32E0915F" Association="Self.FK__EMPLOYEE__INSURA__32E0915F">
+      <End Role="INSURANCE" EntitySet="INSURANCEs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__POSITI__30F848ED" Association="Self.FK__EMPLOYEE__POSITI__30F848ED">
+      <End Role="POSITION" EntitySet="POSITIONs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

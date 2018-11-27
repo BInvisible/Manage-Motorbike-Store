@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MotorbikeDBModelStoreContainer" CdmEntityContainer="MotoDB1">
+    <EntitySetMapping Name="BILLs">
+      <EntityTypeMapping TypeName="MotorbikeDBModel.BILL">
+        <MappingFragment StoreEntitySet="BILL">
+          <ScalarProperty Name="TOTALMONEY" ColumnName="TOTALMONEY" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="DATEBUY" ColumnName="DATEBUY" />
+          <ScalarProperty Name="MOTOID" ColumnName="MOTOID" />
+          <ScalarProperty Name="CUSID" ColumnName="CUSID" />
+          <ScalarProperty Name="BID" ColumnName="BID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERs">
+      <EntityTypeMapping TypeName="MotorbikeDBModel.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMER">
+          <ScalarProperty Name="BID" ColumnName="BID" />
+          <ScalarProperty Name="ADDRESSS" ColumnName="ADDRESSS" />
+          <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+          <ScalarProperty Name="IDCARD" ColumnName="IDCARD" />
+          <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+          <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+          <ScalarProperty Name="CUSID" ColumnName="CUSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEGREEs">
+      <EntityTypeMapping TypeName="MotorbikeDBModel.DEGREE">
+        <MappingFragment StoreEntitySet="DEGREE">
+          <ScalarProperty Name="DEGREENAME" ColumnName="DEGREENAME" />
+          <ScalarProperty Name="DEGREEID" ColumnName="DEGREEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTMENTs">
+      <EntityTypeMapping TypeName="MotorbikeDBModel.DEPARTMENT">
+        <MappingFragment StoreEntitySet="DEPARTMENT">
+          <ScalarProperty Name="DEPARTMENTNAME" ColumnName="DEPARTMENTNAME" />
+          <ScalarProperty Name="DEPARTMENTID" ColumnName="DEPARTMENTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEEs">
+      <EntityTypeMapping TypeName="MotorbikeDBModel.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEE">
+          <ScalarProperty Name="INSURANCEID" ColumnName="INSURANCEID" />
+          <ScalarProperty Name="DEPARTMENTID" ColumnName="DEPARTMENTID" />
+          <ScalarProperty Name="POSITIONID" ColumnName="POSITIONID" />
+          <ScalarProperty Name="DEGREEID" ColumnName="DEGREEID" />
+          <ScalarProperty Name="IDCARD" ColumnName="IDCARD" />
+          <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="ADDDRESSS" ColumnName="ADDDRESSS" />
+          <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+          <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+          <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+          <ScalarProperty Name="EID" ColumnName="EID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INSURANCEs">
+      <EntityTypeMapping TypeName="MotorbikeDBModel.INSURANCE">
+        <MappingFragment StoreEntitySet="INSURANCE">
+          <ScalarProperty Name="EXPDATE" ColumnName="EXPDATE" />
+          <ScalarProperty Name="DATEBUY" ColumnName="DATEBUY" />
+          <ScalarProperty Name="HOSPITAL" ColumnName="HOSPITAL" />
+          <ScalarProperty Name="ISSUEDBY" ColumnName="ISSUEDBY" />
+          <ScalarProperty Name="EID" ColumnName="EID" />
+          <ScalarProperty Name="INSURANCEID" ColumnName="INSURANCEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="MotorbikeDBModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="Authority" ColumnName="Authority" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOTORBIKEs">
+      <EntityTypeMapping TypeName="MotorbikeDBModel.MOTORBIKE">
+        <MappingFragment StoreEntitySet="MOTORBIKE">
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="COLOR" ColumnName="COLOR" />
+          <ScalarProperty Name="CAPACITY" ColumnName="CAPACITY" />
+          <ScalarProperty Name="PRODUCER" ColumnName="PRODUCER" />
+          <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
+          <ScalarProperty Name="MOTONAME" ColumnName="MOTONAME" />
+          <ScalarProperty Name="MOTOID" ColumnName="MOTOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POSITIONs">
+      <EntityTypeMapping TypeName="MotorbikeDBModel.POSITION">
+        <MappingFragment StoreEntitySet="POSITION">
+          <ScalarProperty Name="POSITIONNAME" ColumnName="POSITIONNAME" />
+          <ScalarProperty Name="POSITIONID" ColumnName="POSITIONID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
